@@ -1,48 +1,68 @@
 <form (ngSubmit)="saveProjet()" [formGroup]="projetForm">
-  
   <label for="nomProjet">Nom du Projet:</label>
-  <input type="text" id="nomProjet" formControlName="Nom_Projet">
+  <input type="text" id="nomProjet" formControlName="Nom_Projet" />
 
   <label for="client">Client:</label>
-  <input type="text" id="client" formControlName="Client">
+  <input type="text" id="client" formControlName="Client" />
 
   <label for="description">Description:</label>
   <textarea id="description" formControlName="Description_Projet"></textarea>
 
+  <label for="type">Type:</label>
+  <select id="type" formControlName="type">
+    <option value="ANGULAR">Angular</option>
+    <option value="JAVA">Java</option>
+    <option value="FIGMA">Figma</option>
+    <option value="REACT">React</option>
+    <option value="BOOTSTRAP">Bootstrap</option>
+    <option value="VUEJS">Vue js</option>
+  </select>
+
   <label for="dateDebut">Date de Début:</label>
-  <input type="date" id="dateDebut" formControlName="DateDebut_Projet">
+  <input type="date" id="dateDebut" formControlName="DateDebut_Projet" />
 
   <label for="dateFin">Date de Fin:</label>
-  <input type="date" id="dateFin" formControlName="DateFin_Projet">
+  <input type="date" id="dateFin" formControlName="DateFin_Projet" />
 
-  <hr>
+  <hr />
 
   <h4>User Stories:</h4>
   <div formArrayName="userStory">
-    <div *ngFor="let userStory of userStoryControls.controls; let i = index" [formGroupName]="i">
-      <label for="titreUS{{i}}">Titre:</label>
-      <input type="text" id="titreUS{{i}}" formControlName="titre_US">
+    <div
+      *ngFor="let userStory of userStoryControls.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <label for="titreUS{{ i }}">Titre:</label>
+      <input type="text" id="titreUS{{ i }}" formControlName="titre_US" />
 
-      <label for="descriptionUS{{i}}">Description:</label>
-      <textarea id="descriptionUS{{i}}" formControlName="description_US"></textarea>
+      <label for="descriptionUS{{ i }}">Description:</label>
+      <textarea
+        id="descriptionUS{{ i }}"
+        formControlName="description_US"
+      ></textarea>
 
-      <label for="statutUS{{i}}">Statut:</label>
-      <select id="statutUS{{i}}" formControlName="statut_US">
+      <label for="statutUS{{ i }}">Statut:</label>
+      <select id="statutUS{{ i }}" formControlName="statut_US">
         <option value="Afaire">A faire</option>
         <option value="Encours">En cours</option>
         <option value="Terminee">Terminée</option>
       </select>
 
-      <label for="velociteUS{{i}}">Vélocité:</label>
-      <input type="number" id="velociteUS{{i}}" formControlName="velocite_US">
+      <label for="velociteUS{{ i }}">Vélocité:</label>
+      <input
+        type="number"
+        id="velociteUS{{ i }}"
+        formControlName="velocite_US"
+      />
     </div>
   </div>
 
   <button type="button" (click)="ajouterUserStory()">Ajouter User Story</button>
-  <hr>
+  <hr />
 
-  
-  <button type="submit" [disabled]="projetForm.invalid">Enregistrer Projet</button>
+  <button type="submit" [disabled]="projetForm.invalid">
+    Enregistrer Projet
+  </button>
 </form>
 
 <!--form id="basic-horizontal-layouts" (ngSubmit)="saveProjet()" [formGroup]="projetForm" >

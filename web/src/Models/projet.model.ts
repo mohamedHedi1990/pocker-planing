@@ -1,6 +1,5 @@
 import { StatutUserStory } from "./statut_us.enum";
-import { Userstory } from './userstory.model';
-
+import { Userstory } from "./userstory.model";
 
 /*export interface Projet {
   Nom_Projet: string;
@@ -17,17 +16,6 @@ export interface Projet {
   description_Projet: string;
   dateDebut_Projet: string;
   dateFin_Projet: string;
-  userStory: Userstory[]; 
-
-  
-};
-
-
-
-
-
-
-
-  
-  
-  
+  userStory: Userstory[];
+  type: string;
+}
