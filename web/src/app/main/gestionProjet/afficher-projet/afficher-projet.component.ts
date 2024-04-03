@@ -98,4 +98,31 @@ export class AfficherProjetComponent implements OnInit {
   deleteSelectedProjet() {
     this.deleteProjet(this.selectedProject.idProjet);
   }
+
+  getPicture(projectType): string {
+    if (projectType === "ANGULAR") {
+      return "assets/images/icons/angular.svg";
+    } else if (projectType === "FIGMA") {
+      return "assets/images/icons/figma.svg";
+    } else if (projectType === "REACT") {
+      return "assets/images/icons/react.svg";
+    } else if (projectType === "BOOTSTRAP") {
+      return "assets/images/icons/bootstrap.svg";
+    } else if (projectType === "VUEJS") {
+      return "assets/images/icons/vuejs.svg";
+    }
+  }
+
+  getBackgroundColor(projet): string {
+    let colors = [];
+    colors.push("#7367F01a");
+    colors.push("#82868b1a");
+    colors.push("#28C76F1a");
+    colors.push("#00cfe81a");
+    colors.push("#FF9F431a");
+    colors.push("#EA54551a");
+    colors.push("#4b4b4b1a");
+    const randomNumber = Math.floor(Math.random() * 7);
+    return colors[randomNumber];
+  }
 }
